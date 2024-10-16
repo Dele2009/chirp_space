@@ -1,0 +1,80 @@
+<nav class="bg-white dark:bg-gray-800 p-4 shadow-md fixed w-full z-10 top-0">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/">
+      <div class="flex items-center  rounded-full size-16">
+        <img src="/img/app_logo.png" class="w-full h-ful">
+        <!-- <span class="text-blue-600 font-bold text-xl">CHIRP SPACE</span> -->
+      </div>
+    </a>
+    <div class="flex space-x-4">
+      <button class="text-gray-500 dark:text-gray-300">
+        <i class="bx bx-home text-2xl"></i>
+      </button>
+      <button class="text-gray-500 dark:text-gray-300">
+        <i class="bx bx-user text-2xl"></i>
+      </button>
+      <button class="text-gray-500 dark:text-gray-300">
+        <i class="bx bx-bell text-2xl"></i>
+      </button>
+    </div>
+    <div class="flex items-center justify-center">
+      <input type="text" placeholder="Search people"
+        class="bg-gray-100 dark:bg-gray-700 me-2 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-md" />
+      <% if(!user){ %>
+        <a href="/users/login"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign
+          in</a>
+        <a href="/users/register"
+          class="py-2.5 px-5 me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Sign
+          Up</a>
+        <%}else{%>
+          <button type="button"
+            class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom">
+            <span class="sr-only">Open user menu</span>
+
+            <img class="w-8 h-8 rounded-full"
+              src="<%= user?.profilePic || 'https://img.freepik.com/premium-vector/vector-flat-illustration-avatar-user-profile-person-icon-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-1395.jpg' %>"
+              alt="user photo" />
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            class="z-50 hidden my-4 ml-7 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="user-dropdown">
+            <div class="px-4 py-3">
+              <span class="block text-sm text-gray-900 dark:text-white">
+                <%= user.firstName %>
+                  <%= user.lastName %>
+              </span>
+              <span class="block text-sm text-gray-500 truncate dark:text-gray-400">
+                <%= user.email %>
+              </span>
+            </div>
+            <ul class="py-2" aria-labelledby="user-menu-button">
+              <li>
+                <a href="/users/profile"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+              </li>
+              <li>
+                <a href="/users/logout" class="block px-4 py-2 text-sm text-white bg-[#ff0000]">Sign out</a>
+              </li>
+            </ul>
+          </div>
+          <%}%>
+            <!-- Dark mode toggler -->
+            <button id="theme-toggle"
+              class="text-gray-500 p-3 flex justify-center items-center dark:text-gray-400 bg-gray-200 dark:bg-gray-800 rounded-full">
+              <i id="theme-toggle-icon" class="bx bx-sun text-2xl"></i>
+            </button>
+    </div>
+  </div>
+</nav>

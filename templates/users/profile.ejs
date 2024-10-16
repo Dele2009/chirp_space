@@ -1,0 +1,254 @@
+<!-- User Profile Section -->
+<div class="container mx-auto pt-2">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+    <div class="flex items-center space-x-6">
+      <%if(user?.profilePic){%>
+        <img class="rounded-full w-24 h-24" src="<%= user.profilePic %>" alt="user photo" />
+        <%}else{%>
+          <i class="bx bx-user text-2xl text-gray-500 dark:text-gray-300"></i>
+          <%} %>
+            <div>
+              <h2 class="text-2xl font-semibold">
+                <%= user.firstName %>
+                  <%= user.lastName %>
+              </h2>
+              <p class="text-gray-500 dark:text-gray-400">
+                <%= user.username %>/p>
+              </p>
+              <!-- <div class="mt-4 flex space-x-4">
+          <span><strong>0</strong> Followers</span>
+          <span><strong>0</strong> Following</span>
+          <span><strong>0</strong> Posts</span>
+        </div> -->
+            </div>
+            <button class="ml-auto px-4 py-2 bg-blue-600 text-white rounded-md">
+              Follow
+            </button>
+    </div>
+    <div class="border-b border-gray-200 dark:border-gray-700">
+      <ul class="grid grid-cols-3 -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+        id="profile-tab" data-tabs-toggle="#profile-tab-content" role="tablist">
+        <li class="me-2" role="presentation">
+          <button id="posts-tab" data-tabs-target="#posts" type="button" role="tab" aria-controls="posts"
+            aria-selected="false"
+            class="w-full inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+            <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path
+                d="M5 11.424V1a1 1 0 1 0-2 0v10.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.228 3.228 0 0 0 0-6.152ZM19.25 14.5A3.243 3.243 0 0 0 17 11.424V1a1 1 0 0 0-2 0v10.424a3.227 3.227 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.243 3.243 0 0 0 2.25-3.076Zm-6-9A3.243 3.243 0 0 0 11 2.424V1a1 1 0 0 0-2 0v1.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0V8.576A3.243 3.243 0 0 0 13.25 5.5Z" />
+            </svg>Posts <span class="ml-4">
+              <%=posts.length%>
+            </span>
+          </button>
+        </li>
+        <li class="me-2" role="presentation">
+          <button id="followers-tab" data-tabs-target="#followers" type="button" role="tab" aria-controls="followers"
+            aria-selected="false"
+            class="w-full inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+            <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path
+                d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+            </svg>Followers <span class="ml-4"><%=followers.length%></span>
+          </button>
+        </li>
+        <li class="me-2" role="presentation">
+          <button id="following-tab" data-tabs-target="#following" type="button" role="tab" aria-controls="following"
+            aria-selected="false"
+            class="w-full inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+            <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 18 18">
+              <path
+                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+            </svg>Following <span class="ml-4"><%=following.length%></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- User Posts Section -->
+  <div id="profile-tab-content">
+    <div class="hidden py-4" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+      <div class="w-full h-[50dvh] relative">
+        <div class="flex justify-center items-center absolute bottom-6 right-4">
+          <button data-modal-target="createPostModal" data-modal-toggle="createPostModal" type="button"
+            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            Create a new post
+          </button>
+        </div>
+        <% if(posts.length> 0){%>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <% for( const post of posts ) { %>
+              <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+                <h3 class="font-semibold text-lg">
+                  <%= post.title %>
+                </h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                  <%= post.content %>
+                </p>
+                <% if (post.imageUrl) { %>
+                  <img src="<%=post.imageUrl%>" alt="Post image" class="rounded-lg w-full mt-4" />
+                  <% } %>
+              </div>
+              <% } %>
+                <!-- Repeat post layout for more posts -->
+          </div>
+          <% } else { %>
+            <div class="w-full flex items-center justify-center flex-col">
+              <img src="/profile-no-post.png" alt="" class="w-80 h-80" />
+            </div>
+            <% } %>
+      </div>
+    </div>
+    <div class="hidden py-4" id="followers" role="tabpanel" aria-labelledby="followers-tab">
+      <p class="text-sm text-gray-500 dark:text-gray-400">Followers</p>
+    </div>
+    <div class="hidden py-4" id="following" role="tabpanel" aria-labelledby="following-tab">
+      <p class="text-sm text-gray-500 dark:text-gray-400">Following</p>
+    </div>
+  </div>
+</div>
+
+<!-- Main modal -->
+<div id="createPostModal" tabindex="-1" aria-hidden="true"
+  class="hidden overflow-y-auto bg-gray-900/80 overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative w-full max-w-2xl max-h-full">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
+      <!-- Modal header -->
+      <div class="flex justify-between items-center p-4 border-b dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Create a New Post
+        </h3>
+        <button type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="createPostModal">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+
+      <form action="/posts" method="POST" enctype="multipart/form-data">
+        <!-- Modal body -->
+        <div class="p-6 space-y-6">
+          <!-- Title input -->
+          <div>
+            <label for="post-title" class="block text-sm font-medium text-gray-900 dark:text-white">Title</label>
+            <input type="text" id="post-title"
+              class="mt-1 w-full p-2 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              placeholder="Post Title" name="title" required />
+          </div>
+          <!-- Content textarea -->
+          <div>
+            <label for="post-content" class="block text-sm font-medium text-gray-900 dark:text-white">Content</label>
+            <textarea id="post-content" rows="4"
+              class="mt-1 w-full p-2 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              placeholder="Write your post content here..." name="content" required></textarea>
+          </div>
+          <!-- Tags input -->
+          <div>
+            <label for="post-tags" class="block text-sm font-medium text-gray-900 dark:text-white">Tags
+              (comma-separated)</label>
+            <input type="text" id="post-tags"
+              class="mt-1 w-full p-2 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              placeholder="e.g. #Tech, #Lifestyle, #Sports" name="tags" />
+          </div>
+          <!-- Image upload section -->
+          <div>
+            <span class="block text-sm font-medium text-gray-900 dark:text-white">Upload Image</span>
+            <div class="mt-1 flex items-center justify-center w-full">
+              <label for="image-upload"
+                class="overflow-hidden flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-500">
+                <div id="content-section" class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <i class="bx bx-upload text-5xl text-gray-400 dark:text-gray-300"></i>
+                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <span class="font-semibold">Click to upload</span> or drag
+                    and drop
+                  </p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    PNG, JPG (MAX. 5MB)
+                  </p>
+                </div>
+                <img src="" class="object-cover hidden" id="upload_pic" alt="" />
+                <input id="image-upload" name="post-image" type="file" class="hidden" accept="image/*" />
+              </label>
+              <i class="text-[#ff0000]" id="image_error"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 dark:border-gray-600">
+          <button type="submit"
+            class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Post
+          </button>
+          <button data-modal-hide="createPostModal" type="button"
+            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document
+    .getElementById("image-upload")
+    .addEventListener("change", function (event) {
+      const file = event.target.files[0]; // Get the file from input
+
+      // Clear any previous error messages and hide the image preview
+      const errorMessage = document.getElementById("image_error");
+      const contentSection = document.getElementById("content-section");
+      const imagePreview = document.getElementById("upload_pic");
+      errorMessage.textContent = "";
+      // imagePreview.style.display = 'none';
+
+      if (!file) {
+        errorMessage.textContent = "Please select a file.";
+        return;
+      }
+
+      // Check file size (2MB = 2 * 1024 * 1024 bytes)
+      const maxSize = 2 * 1024 * 1024;
+      if (file.size > maxSize) {
+        errorMessage.textContent = "File size must be less than 2MB.";
+        return;
+      }
+
+      // Create an image to check dimensions
+      const img = new Image();
+      const objectUrl = URL.createObjectURL(file);
+
+      img.onload = function () {
+        // Check image dimensions (1024 x 1024)
+        //if (img.width !== 1024 || img.height !== 1024) {
+        //  errorMessage.textContent =
+        //    "Image dimensions must be 1024x1024 pixels.";
+        //  URL.revokeObjectURL(objectUrl); // Clean up the object URL
+        //  return;
+        //}
+
+        // If file passes validation, show the image preview
+        imagePreview.classList.remove("hidden");
+        contentSection.classList.add("hidden");
+        imagePreview.src = objectUrl;
+        // imagePreview.style.display = 'block'; // Show the image preview
+      };
+
+      img.onerror = function () {
+        errorMessage.textContent = "The selected file is not a valid image.";
+        URL.revokeObjectURL(objectUrl); // Clean up the object URL
+      };
+
+      img.src = objectUrl; // Load the image to trigger the onload event
+    });
+</script>
+<!-- Illustration by <a href="https://icons8.com/illustrations/author/lZpGtGw5182N">Elisabet Guba</a> from <a href="https://icons8.com/illustrations">Ouch!</a> -->

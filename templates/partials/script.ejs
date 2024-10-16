@@ -1,0 +1,36 @@
+<script>
+     if (
+          localStorage.getItem("theme") === "dark" ||
+          (!("theme" in localStorage) &&
+               window.matchMedia("(prefers-color-scheme: dark)").matches)
+     ) {
+          document.documentElement.classList.add("dark");
+          document.getElementById("theme-toggle-icon").classList.remove("bx-sun");
+          document.getElementById("theme-toggle-icon").classList.add("bx-moon");
+     } else {
+          document.documentElement.classList.remove("dark");
+          document.getElementById("theme-toggle-icon").classList.remove("bx-moon");
+          document.getElementById("theme-toggle-icon").classList.add("bx-sun");
+     }
+
+     // Theme toggle button
+     const themeToggleBtn = document.getElementById("theme-toggle");
+     const themeToggleIcon = document.getElementById("theme-toggle-icon");
+
+     // Toggle between dark and light mode
+     themeToggleBtn.addEventListener("click", function () {
+          // If dark mode is enabled
+          if (document.documentElement.classList.contains("dark")) {
+               document.documentElement.classList.remove("dark");
+               localStorage.setItem("theme", "light");
+               themeToggleIcon.classList.remove("bx-moon");
+               themeToggleIcon.classList.add("bx-sun");
+          } else {
+               document.documentElement.classList.add("dark");
+               localStorage.setItem("theme", "dark");
+               themeToggleIcon.classList.remove("bx-sun");
+               themeToggleIcon.classList.add("bx-moon");
+          }
+     });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>

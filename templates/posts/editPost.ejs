@@ -1,0 +1,98 @@
+<div class="edit-post max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+  <!-- Illustration -->
+  <div class="flex justify-center mb-6">
+    <img
+      src="https://via.placeholder.com/150"
+      alt="Illustration"
+      class="w-40 h-40 -bounce"
+    />
+  </div>
+
+  <!-- Edit Post Header -->
+  <h1
+    class="text-4xl font-extrabold text-gray-900 mb-6 flex items-center justify-center"
+  >
+    <i class="bx bxs-edit-alt mr-2"></i> Edit Your Post
+  </h1>
+
+  <!-- Edit Post Form -->
+  <form
+    action="/posts/edit/<%= post.id %>"
+    method="POST"
+    enctype="multipart/form-data"
+    class="space-y-6"
+  >
+    <!-- Title Field -->
+    <div class="flex flex-col">
+      <label for="title" class="font-semibold text-gray-700 flex items-center">
+        <i class="bx bx-text mr-2"></i> Title
+      </label>
+      <input
+        type="text"
+        name="title"
+        value="<%= post.title %>"
+        class="mt-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-sm"
+      />
+    </div>
+
+    <!-- Content Field -->
+    <div class="flex flex-col">
+      <label
+        for="content"
+        class="font-semibold text-gray-700 flex items-center"
+      >
+        <i class="bx bx-message-square-detail mr-2"></i> Content
+      </label>
+      <textarea
+        name="content"
+        rows="6"
+        class="mt-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-sm"
+      >
+<%- post.content %></textarea
+      >
+    </div>
+
+    <!-- Tags Field -->
+    <div class="flex flex-col">
+      <label for="tags" class="font-semibold text-gray-700 flex items-center">
+        <i class="bx bx-purchase-tag-alt mr-2"></i> Tags (comma-separated)
+      </label>
+      <input
+        type="text"
+        name="tags"
+        value="<%= post.tags %>"
+        class="mt-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-sm"
+      />
+    </div>
+
+    <!-- Image Upload Field -->
+    <div class="flex flex-col">
+      <label for="image" class="font-semibold text-gray-700 flex items-center">
+        <i class="bx bx-image-add mr-2"></i> Upload Image
+      </label>
+      <input
+        type="file"
+        name="image"
+        class="mt-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-sm"
+      />
+    </div>
+
+    <!-- Update Button -->
+    <button
+      type="submit"
+      class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg shadow hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition ease-in-out duration-300 flex items-center justify-center"
+    >
+      <i class="bx bx-save mr-2 animate-spin-slow"></i> Update Post
+    </button>
+  </form>
+
+  <!-- Link to Create New Post -->
+  <div class="mt-8 text-center">
+    <a
+      href="/posts/new"
+      class="text-blue-600 hover:text-blue-800 flex items-center justify-center"
+    >
+      <i class="bx bx-plus-circle mr-1"></i> Create New Post
+    </a>
+  </div>
+</div>

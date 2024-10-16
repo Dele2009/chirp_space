@@ -1,0 +1,63 @@
+<aside class="w-1/4 bg-white dark:bg-gray-800 p-4 h-screen sticky top-[94px]">
+  <%if(user){%>
+  <div class="flex items-center space-x-4 mb-8">
+    <img
+      src="<%=user?.profilePic || 'https://img.freepik.com/premium-vector/vector-flat-illustration-avatar-user-profile-person-icon-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-1395.jpg'%>"
+      alt="User avatar"
+      class="rounded-full w-10 h-10"
+    />
+    <div>
+      <h2 class="font-semibold text-lg">
+        <%= user.firstName %> <%= user.lastName %>
+      </h2>
+      <p class="text-sm text-gray-500 dark:text-gray-400"><%= user.email %></p>
+    </div>
+  </div>
+  <%}%>
+  <ul class="space-y-4">
+    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+      <i class="bx bxl-reddit"></i>
+      <span>Reddit Inc.</span>
+    </li>
+    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+      <i class="bx bxl-google"></i>
+      <span>Google Search</span>
+    </li>
+    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+      <i class="bx bxl-tiktok"></i>
+      <span>TikTok Inc.</span>
+    </li>
+    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+      <i class="bx bx-plus-circle"></i>
+      <span>Add new page</span>
+    </li>
+  </ul>
+
+  <div class="mt-8">
+    <h3 class="text-gray-800 dark:text-gray-200 font-semibold mb-4">
+      Learning
+    </h3>
+    <ul class="space-y-4">
+      <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+        <i class="bx bx-book"></i>
+        <span>Learning</span>
+      </li>
+      <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+        <i class="bx bx-chart"></i>
+        <span>Statistics</span>
+      </li>
+      <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+        <i class="bx bx-bookmark"></i>
+        <span>Bookmarks</span>
+      </li>
+      <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+        <i class="bx bx-game"></i>
+        <span>Gaming</span>
+      </li>
+      <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+        <i class="bx bx-share-alt"></i>
+        <span>Share</span>
+      </li>
+    </ul>
+  </div>
+</aside>

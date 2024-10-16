@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 p-4 shadow-md fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-blue-600 font-bold text-xl">SOCKITX</span>
+            </div>
+            <div class="flex space-x-4">
+                <button class="text-gray-500 dark:text-gray-300"><i class='bx bx-home text-2xl'></i></button>
+                <button class="text-gray-500 dark:text-gray-300"><i class='bx bx-user text-2xl'></i></button>
+                <button class="text-gray-500 dark:text-gray-300"><i class='bx bx-bell text-2xl'></i></button>
+            </div>
+            <div>
+                <input type="text" placeholder="Search people" class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-md">
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex pt-16">
+        <!-- Left Sidebar -->
+        <aside class="w-1/4 bg-white dark:bg-gray-800 p-4 h-screen sticky top-0">
+            <div class="flex items-center space-x-4 mb-8">
+                <img src="https://via.placeholder.com/40" alt="User avatar" class="rounded-full w-10 h-10">
+                <div>
+                    <h2 class="font-semibold text-lg">Jin Keguar</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Manager</p>
+                </div>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                    <i class='bx bxl-reddit'></i>
+                    <span>Reddit Inc.</span>
+                </li>
+                <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                    <i class='bx bxl-google'></i>
+                    <span>Google Search</span>
+                </li>
+                <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                    <i class='bx bxl-tiktok'></i>
+                    <span>TikTok Inc.</span>
+                </li>
+                <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                    <i class='bx bx-plus-circle'></i>
+                    <span>Add new page</span>
+                </li>
+            </ul>
+
+            <div class="mt-8">
+                <h3 class="text-gray-800 dark:text-gray-200 font-semibold mb-4">Learning</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-book'></i>
+                        <span>Learning</span>
+                    </li>
+                    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-chart'></i>
+                        <span>Statistics</span>
+                    </li>
+                    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-bookmark'></i>
+                        <span>Bookmarks</span>
+                    </li>
+                    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-game'></i>
+                        <span>Gaming</span>
+                    </li>
+                    <li class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-share-alt'></i>
+                        <span>Share</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-1/2 p-4">
+            <!-- Post Input -->
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg mb-6 shadow-sm">
+                <div class="flex items-center space-x-4">
+                    <img src="https://via.placeholder.com/40" alt="User avatar" class="rounded-full w-10 h-10">
+                    <input type="text" placeholder="Write something..." class="w-full bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-md text-gray-800 dark:text-gray-200">
+                </div>
+                <div class="flex justify-between mt-4">
+                    <button class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-image'></i><span>Photo</span>
+                    </button>
+                    <button class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-video'></i><span>Video</span>
+                    </button>
+                    <button class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-calendar-event'></i><span>Event</span>
+                    </button>
+                    <button class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-map'></i><span>Location</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Post Content -->
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg mb-6 shadow-sm">
+                <div class="flex items-center space-x-4">
+                    <img src="https://via.placeholder.com/40" alt="User avatar" class="rounded-full w-10 h-10">
+                    <div>
+                        <h3 class="font-semibold">Prelly Kilman</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">2 hours ago</p>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <img src="https://via.placeholder.com/500x300" alt="Post image" class="rounded-lg w-full">
+                </div>
+                <div class="flex items-center space-x-4 mt-4">
+                    <button class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-heart'></i><span>Like</span>
+                    </button>
+                    <button class="flex items-center space-x-2 text-gray-500 dark:text-gray-300">
+                        <i class='bx bx-comment'></i><span>Comment</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="w-1/4 bg-white dark:bg-gray-800 p-4 h-screen sticky top-0">
+            <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-4">People you may know</h3>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://via.placeholder.com/40" alt="User avatar" class="rounded-full w-10 h-10">
+                        <span>Melissa Lavala</span>
+                    </div>
+                    <button class="text-blue-600">Connect</button>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://via.placeholder.com/40" alt="User avatar" class="rounded-full w-10 h-10">
+                        <span>Peter Kilman</span>
+                    </div>
+                    <button class="text-blue-600">Connect</button>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-4">Join discussion</h3>
+                <ul class="space-y-4">
+                    <li class="text-gray-500 dark:text-gray-300">#freeinternet (100.23k posts)</li>
+                    <li class="text-gray-500 dark:text-gray-300">#globalwarming (443 posts)</li>
+                    <li class="text-gray-500 dark:text-gray-300">#cars (212 posts)</li>
+                    <li class="text-gray-500 dark:text-gray-300">#iphone (340 posts)</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

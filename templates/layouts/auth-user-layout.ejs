@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/common-head') %>
+  </head>
+  <body
+  class="pt-[94px] bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200"
+  >
+    <!-- Navbar -->
+    <%- include('../partials/navbar') %>
+
+    <div class="flex">
+      <!-- Left Sidebar -->
+      <%- include('../partials/left-sidebar') %>
+
+      <!-- Main Content -->
+      <main class="w-9/12 p-4">
+        <%- include('../partials/alerts') %> <%- body %>
+      </main>
+    </div>
+    <%- include('../partials/script') %>
+  </body>
+</html>
